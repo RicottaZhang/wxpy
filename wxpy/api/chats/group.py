@@ -27,7 +27,7 @@ class Group(Chat):
 
         def raw_member_list(update=False):
             if update:
-                self.update_group(members_details=True)
+                self.update_group()
             return self.raw.get('MemberList', list())
 
         ret = Chats(source=self)
