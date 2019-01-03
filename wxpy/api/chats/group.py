@@ -107,6 +107,7 @@ class Group(Chat):
 
         @handle_response()
         def do():
+            print(self)
             return self.bot.core.update_chatroom(self.user_name, members_details)
 
         super(Group, self).__init__(do(), self.bot)
