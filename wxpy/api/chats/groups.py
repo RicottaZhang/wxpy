@@ -32,12 +32,14 @@ class Groups(list):
                 elif group.user_name in Groups.valid_group_user_names:
                     groups_to_init.append(group)
                 else:
-                    if group.bot.self in group:
-                        Groups.valid_group_user_names.append(group.user_name)
-                        groups_to_init.append(group)
-                    else:
-                        Groups.shadow_group_user_names.append(group.user_name)
-
+                    try:
+                        if group.bot.self in group:
+                            Groups.valid_group_user_names.append(group.user_name)
+                            groups_to_init.append(group)
+                        else:
+                            Groups.shadow_group_user_names.append(group.user_name)
+                    except:
+                        pass
             super(Groups, self).__init__(groups_to_init)
 
     def search(self, keywords=None, users=None, **attributes):
