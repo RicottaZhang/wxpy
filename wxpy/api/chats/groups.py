@@ -32,7 +32,7 @@ class Groups(list):
                 elif group.user_name in Groups.valid_group_user_names:
                     groups_to_init.append(group)
                 else:
-                    valid_group = false
+                    valid_group = False
                     try:
                         valid_group = group.bot.self in group
                     except:
